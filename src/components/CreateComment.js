@@ -3,12 +3,13 @@
 import React, { useState } from "react";
 import { Grid, Button, TextField } from "@mui/material";
 
-const CreateComment = ({ setComments }) => {
+const CreateComment = ({ commentList, createNode, setCommentStatus }) => {
 	const [comment, setComment] = useState("");
 
 	const addComment = () => {
-		setComments((prevComments) => [...prevComments, comment]);
+		createNode(commentList.id, comment);
 		setComment("");
+		setCommentStatus(0);
 	};
 
 	return (

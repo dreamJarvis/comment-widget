@@ -1,16 +1,26 @@
 /** @format */
 
 import { Box, Stack } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import CommentActions from "./CommentActions";
 
-const DisplayComments = ({ comments, setComments }) => {
+const DisplayComments = ({
+	commentList,
+	createNode,
+	updateNode,
+	deleteNode,
+}) => {
 	return (
 		<Box className='display-comments'>
-			{comments.length > 0 ? (
-				comments.map((comment) => (
+			{commentList?.childrens?.length > 0 ? (
+				commentList?.childrens?.map((comment) => (
 					<Stack className='comment-stack'>
-						<CommentActions comment={comment} setComments={setComments} />
+						<CommentActions
+							commentList={comment}
+							createNode={createNode}
+							updateNode={updateNode}
+							deleteNode={deleteNode}
+						/>
 					</Stack>
 				))
 			) : (
